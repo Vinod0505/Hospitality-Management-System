@@ -3,13 +3,14 @@ package com.hms.model;
 public class Room {
 
 	private int roomId;
-    private String roomNumber;
-    private String roomType;
-    private double roomPrice;
-    private String roomStatus;
-    private int hotelId;
-    
-	public Room(int roomId, String roomNumber, String roomType, double roomPrice, String roomStatus, int hotelId) {
+	private int roomNumber;
+	private String roomType;
+	private int roomPrice;
+	private String roomStatus;
+	private int hotelId;
+
+	public Room() {}
+	public Room(int roomId, int roomNumber, String roomType, int roomPrice, String roomStatus, int hotelId) {
 		super();
 		this.roomId = roomId;
 		this.roomNumber = roomNumber;
@@ -27,11 +28,11 @@ public class Room {
 		this.roomId = roomId;
 	}
 
-	public String getRoomNumber() {
+	public int getRoomNumber() {
 		return roomNumber;
 	}
 
-	public void setRoomNumber(String roomNumber) {
+	public void setRoomNumber(int roomNumber) {
 		this.roomNumber = roomNumber;
 	}
 
@@ -43,11 +44,11 @@ public class Room {
 		this.roomType = roomType;
 	}
 
-	public double getRoomPrice() {
+	public int getRoomPrice() {
 		return roomPrice;
 	}
 
-	public void setRoomPrice(double roomPrice) {
+	public void setRoomPrice(int roomPrice) {
 		this.roomPrice = roomPrice;
 	}
 
@@ -66,7 +67,13 @@ public class Room {
 	public void setHotelId(int hotelId) {
 		this.hotelId = hotelId;
 	}
-    
-	
-    
+
+	@Override
+	public String toString() {
+		return "Room [roomId=" + roomId + ", roomNumber=" + roomNumber + ", roomType=" + roomType + ", roomPrice="
+				+ roomPrice + ", roomStatus=" + roomStatus + ", hotelId=" + hotelId + "]";
+	}
+
+
+
 }

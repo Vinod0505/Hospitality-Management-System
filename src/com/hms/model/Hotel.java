@@ -7,6 +7,7 @@ public class Hotel {
 	private String hotelLocation;
 	private String hotelAmenities;
 
+	public Hotel() {}
 	public Hotel(int hotelId, String hotelName, String hotelLocation, String hotelAmenities) {
 		super();
 		this.hotelId = hotelId;
@@ -39,6 +40,13 @@ public class Hotel {
 	}
 	public void setHotelAmenities(String hotelAmenities) {
 		this.hotelAmenities = hotelAmenities;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Hotel [hotelId=" + hotelId + ", hotelName=" + hotelName + ", hotelLocation=" + hotelLocation
+				+ ", hotelAmenities=" + hotelAmenities + "]";
 	}
 
 

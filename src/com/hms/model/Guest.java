@@ -5,8 +5,10 @@ public class Guest {
 	private int guestId;
 	private String guestName;
 	private String guestEmail;
-	private String guestPhoneNumber;
-	public Guest(int guestId, String guestName, String guestEmail, String guestPhoneNumber) {
+	private long guestPhoneNumber;
+
+	public Guest() {}
+	public Guest(int guestId, String guestName, String guestEmail, long guestPhoneNumber) {
 		super();
 		this.guestId = guestId;
 		this.guestName = guestName;
@@ -31,11 +33,16 @@ public class Guest {
 	public void setGuestEmail(String guestEmail) {
 		this.guestEmail = guestEmail;
 	}
-	public String getGuestPhoneNumber() {
+	public long getGuestPhoneNumber() {
 		return guestPhoneNumber;
 	}
-	public void setGuestPhoneNumber(String guestPhoneNumber) {
+	public void setGuestPhoneNumber(long guestPhoneNumber) {
 		this.guestPhoneNumber = guestPhoneNumber;
+	}
+	@Override
+	public String toString() {
+		return "Guest [guestId=" + guestId + ", guestName=" + guestName + ", guestEmail=" + guestEmail
+				+ ", guestPhoneNumber=" + guestPhoneNumber + "]";
 	}
 
 
