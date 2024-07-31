@@ -28,8 +28,13 @@ public class HotelDoa {
 			pstmt.setString(4, hotel.getHotelAmenities());
 			pstmt.executeUpdate();
 		}finally {
-			con.close();
-			pstmt.close();
+			// Ensure pstmt and con are closed
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 	}
 
@@ -46,8 +51,13 @@ public class HotelDoa {
 						rs.getString("hotelLocation"), rs.getString("hotelAmenities"));
 			}
 		}finally {
-			con.close();
-			pstmt.close();
+			// Ensure pstmt and con are closed
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 		return null;
 	}
@@ -64,8 +74,13 @@ public class HotelDoa {
 
 			}
 		}finally {
-			con.close();
-			stmt.close();
+			// Ensure pstmt and con are closed
+			if (stmt != null) {
+				stmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 		return hotels;
 	}
@@ -81,8 +96,13 @@ public class HotelDoa {
 			pstmt.setInt(4, hotel.getHotelId());
 			pstmt.executeUpdate();
 		}finally {
-			con.close();
-			pstmt.close();
+			// Ensure pstmt and con are closed
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 	}
 
@@ -94,8 +114,13 @@ public class HotelDoa {
 			pstmt.setInt(1, hotelId);
 			pstmt.executeUpdate();
 		}finally {
-			con.close();
-			pstmt.close();
+			// Ensure pstmt and con are closed
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 	}
 
