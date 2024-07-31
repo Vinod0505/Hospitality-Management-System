@@ -30,8 +30,13 @@ public class ReservationDoa {
 			pstmt.setDate(4, new Date(reservation.getCheckOutDate().getDate()));
 			pstmt.executeUpdate(); 
 		}finally {
-			con.close();
-			pstmt.close();
+			// Ensure pstmt and con are closed
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 	}
 
@@ -46,8 +51,13 @@ public class ReservationDoa {
 				return new Reservation(rs.getInt("reservaionId"), rs.getInt("guestId"), rs.getInt("roomId"), rs.getDate("checkInDate"), rs.getDate("checkOutDate"));
 			}
 		}finally {
-			con.close();
-			pstmt.close();
+			// Ensure pstmt and con are closed
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 		return null;
 	}
@@ -64,8 +74,13 @@ public class ReservationDoa {
 						rs.getInt("roomId"), rs.getDate("checkInDate"), rs.getDate("checkOutDate")));
 			}
 		}finally {
-			con.close();
-			stmt.close();
+			// Ensure pstmt and con are closed
+			if (stmt != null) {
+				stmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 		return reservations;
 	}
@@ -80,6 +95,14 @@ public class ReservationDoa {
 			pstmt.setDate(4, new Date(reservation.getCheckOutDate().getDate()));
 			pstmt.setInt(5, reservation.getReservationId());
 			pstmt.executeUpdate();
+		}finally {
+			// Ensure pstmt and con are closed
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 	}
 
@@ -89,6 +112,14 @@ public class ReservationDoa {
 				PreparedStatement pstmt = conn.prepareStatement(query)) {
 			pstmt.setInt(1, reservationId);
 			pstmt.executeUpdate();
+		}finally {
+			// Ensure pstmt and con are closed
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 	}
 }

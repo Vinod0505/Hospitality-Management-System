@@ -20,6 +20,15 @@ public class Room {
 		this.hotelId = hotelId;
 	}
 
+
+	public Room(int roomId2, int hotelId2, int roomNumber2, String roomType2, int roomPrice2, String roomStatus2) {
+		this.roomId=roomId2;
+		this.hotelId=hotelId2;
+		this.roomNumber=roomNumber2;
+		this.roomType=roomType2;
+		this.roomPrice=roomPrice2;
+		this.roomStatus=roomStatus2;
+	}
 	public int getRoomId() {
 		return roomId;
 	}

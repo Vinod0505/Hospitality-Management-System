@@ -1,6 +1,6 @@
 package com.hms.model;
 
-import java.sql.Date;
+import java.util.Date;
 import java.time.LocalDateTime;
 
 public class Reservation {
@@ -13,14 +13,14 @@ public class Reservation {
 
 	public Reservation() {}
 
-	public Reservation(int reservationId, int guestId, int roomId, Date checkInDate,
-			Date checkOutDate) {
+	public Reservation(int reservationId, int guestId, int roomId, java.util.Date checkInDate2,
+			java.util.Date checkOutDate2) {
 		super();
 		this.reservationId = reservationId;
 		this.guestId = guestId;
 		this.roomId = roomId;
-		this.checkInDate = checkInDate;
-		this.checkOutDate = checkOutDate;
+		this.checkInDate = checkInDate2;
+		this.checkOutDate = checkOutDate2;
 	}
 
 	public int getReservationId() {

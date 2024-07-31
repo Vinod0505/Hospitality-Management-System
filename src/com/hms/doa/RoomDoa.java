@@ -29,8 +29,13 @@ public class RoomDoa {
 			pstmt.setString(6, room.getRoomStatus());
 			pstmt.executeUpdate();
 		}finally {
-			con.close();
-			pstmt.close();
+			// Ensure pstmt and con are closed
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 	}
 
@@ -46,9 +51,14 @@ public class RoomDoa {
 				return new Room(rs.getInt("roomId"), rs.getInt("roomNumber"),
 						rs.getString("roomType"), rs.getInt("roomPrice"), rs.getString("roomStatus"),rs.getInt("hotelId"));
 			}
-		}finally {
-			con.close();
-			pstmt.close();
+		}finally{
+			// Ensure pstmt and con are closed
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 		return null;
 	}
@@ -65,8 +75,13 @@ public class RoomDoa {
 						rs.getString("roomType"), rs.getInt("roomPrice"), rs.getString("roomStatus"), rs.getInt("hotelId")));
 			}
 		}finally {
-			con.close();
-			stmt.close();
+			// Ensure pstmt and con are closed
+			if (stmt != null) {
+				stmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 		return rooms;
 	}
@@ -85,8 +100,13 @@ public class RoomDoa {
 			pstmt.setInt(6, room.getRoomId());
 			pstmt.executeUpdate();
 		}finally {
-			con.close();
-			pstmt.close();
+			// Ensure pstmt and con are closed
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 
 	}
@@ -95,12 +115,17 @@ public class RoomDoa {
 		String query = "DELETE FROM rooms WHERE roomId = ?";
 		con = DatabaseConnector.getConnection();
 		try {
-		pstmt = con.prepareStatement(query);
-		pstmt.setInt(1, roomId);
-		pstmt.executeUpdate();
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, roomId);
+			pstmt.executeUpdate();
 		}finally {
-			con.close();
-			pstmt.close();
+			// Ensure pstmt and con are closed
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 	}
 }

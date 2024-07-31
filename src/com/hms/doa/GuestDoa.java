@@ -1,6 +1,6 @@
 package com.hms.doa;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,8 +28,13 @@ public class GuestDoa {
 			pstmt.setLong(4, guest.getGuestPhoneNumber());
 			pstmt.executeUpdate();
 		}finally {
-			con.close();
-			pstmt.close();
+			// Ensure pstmt and con are closed
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 	}
 
@@ -45,8 +50,13 @@ public class GuestDoa {
 						rs.getString("guestEmail"), rs.getLong("guestPhoneNumber"));
 			}
 		}finally {
-			con.close();
-			pstmt.close();
+			// Ensure pstmt and con are closed
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 		return null;
 	}
@@ -63,8 +73,13 @@ public class GuestDoa {
 						rs.getString("guestEmail"), rs.getLong("guestPhoneNumber")));
 			}
 		}finally {
-			con.close();
-			stmt.close();
+			// Ensure pstmt and con are closed
+			if (stmt != null) {
+				stmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 		return guests;
 	}
@@ -80,8 +95,13 @@ public class GuestDoa {
 			pstmt.setInt(4, guest.getGuestId());
 			pstmt.executeUpdate();
 		}finally {
-			con.close();
-			pstmt.close();
+			// Ensure pstmt and con are closed
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 	}
 
@@ -91,6 +111,14 @@ public class GuestDoa {
 				PreparedStatement pstmt = conn.prepareStatement(query)) {
 			pstmt.setInt(1, guestId);
 			pstmt.executeUpdate();
+		}finally {
+			// Ensure pstmt and con are closed
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
 		}
 	}
 }
